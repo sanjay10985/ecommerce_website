@@ -66,12 +66,14 @@
   padding: 0.2em;
   cursor: pointer;
   box-shadow: 3px 3px 5px rgba(88, 79, 79, 0.463);
-  transition: all 0.2s;
+  color: white;
+  transition: all 0.1s;
 }
 
-.navitem__div > svg:hover {
+.navitem__div >  svg:hover {
   /* transform: translateY(-0.1em); */
   margin-top: -0.1em;
-  transition: all 0.2s;
+  transition: all 0.1s;
+  color: rgb(197, 192, 192);
 }
 

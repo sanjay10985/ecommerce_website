@@ -10,12 +10,12 @@
   border-radius: 1em;
   margin: 1em;
   transition: all .2s;
-  box-shadow: 2px 2px 5px rgba(86, 76, 76, 0.085),-2px -2px 5px rgba(88, 79, 79, 0.079);
+  box-shadow: 2px 2px 5px rgba(86, 76, 76, 0.211),-2px -2px 5px rgba(88, 79, 79, 0.205);
   position: relative;
 }
 
 .productItem__div:hover{
-  box-shadow: 2px 2px 5px rgba(86, 76, 76, 0.214),-2px -2px 5px rgba(88, 79, 79, 0.208);
+  box-shadow: 2px 2px 5px rgba(86, 76, 76, 0.33),-2px -2px 5px rgba(88, 79, 79, 0.325);
   transition: all .2s;
   
 }

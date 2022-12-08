@@ -19,6 +19,7 @@ const ProductDetail = () => {
         return setProduct(product);
       }
     });
+    window.scrollTo(0,0);
   }, [params.id]);
 
   return (

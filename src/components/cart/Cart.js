@@ -6,7 +6,11 @@ const Cart = () => {
     const {cartProducts} =context;
   return (
     <div className='cart__section'>
-      
+      {cartProducts.map((product) => (
+        <>
+            <h1>{product.title}</h1>
+        </>
+      ))}
     </div>
   )
 }

@@ -23,9 +23,9 @@ const Navbar = () => {
 
 const Navitem = ({ icon, title }) => {
   return (
-    <div className="navitem__div" title={title}>
+    <Link to="/cart" className="navitem__div" title={title}>
       {icon}
-    </div>
+    </Link>
   );
 };
 

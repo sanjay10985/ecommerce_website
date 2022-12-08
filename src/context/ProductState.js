@@ -73,7 +73,7 @@ const ProductState = (props) => {
 
   const addToCart = (id) =>{
     const newProducts = products.filter((product) => product.id === id);
-    setCartProducts(newProducts);
+    setCartProducts(cartProducts.concat(newProducts));
   }
 
   return (
