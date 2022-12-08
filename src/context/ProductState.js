@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProductContext from "./ProductContext";
 
 const ProductState = (props) => {
@@ -68,8 +69,15 @@ const ProductState = (props) => {
     },
   ];
 
+  const[cartProducts, setCartProducts] = useState(products);
+
+  const addToCart = (id) =>{
+    const newProducts = products.filter((product) => product.id === id);
+    setCartProducts(newProducts);
+  }
+
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, addToCart, cartProducts }}>
       {props.children}
     </ProductContext.Provider>
   );

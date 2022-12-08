@@ -1,13 +1,17 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import ProductContext from "../../context/ProductContext";
+import "./ProductDetails.css";
 
-const ProductDetail = (props) => {
+const ProductDetail = () => {
   const context = useContext(ProductContext);
-  const { products } = context;
-  const params = useParams();
+  const { products, addToCart } = context;
+
   const [product, setProduct] = useState([]);
-  console.log(params);
+
+  const params = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const id = params.id;
     products.map((product) => {
@@ -16,11 +20,31 @@ const ProductDetail = (props) => {
       }
     });
   }, [params.id]);
+
   return (
-    <div>
-      this is ProductDetail
-      <h1>{product.title}</h1>
-      <h3>{product.price}</h3>
+    <div className="product_details__section">
+      <div className="product_details__div">
+        <div className="product_detail__img">
+          <img src={product.imgUrl} alt="product-image" />
+        </div>
+        <div className="product_discription__div">
+          <h2 className="product__title">{product.title}</h2>
+          <div className="product_price__div">
+            <h3 className="prodcut__price">{product.price}</h3>
+            <p className="product__mrp">{product.mrp}</p>
+          </div>
+          <div className="addtocart_div">
+            <button
+              onClick={() => {
+                addToCart(product.id);  
+              }}
+              className="addtocart__button"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

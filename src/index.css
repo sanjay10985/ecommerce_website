@@ -23,8 +23,8 @@ code {
 }
 
 *{
-  animation: animate 0.1s ease-in-out;
-  animation-timing-function: 1;
+  animation: animate .1s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode:both;
   animation-direction: alternate;
   transform-origin: center;
@@ -34,13 +34,12 @@ code {
 
 @keyframes animate {
   0%{
-    /* width: 0%; */
     transform: translateX(-1em);
     opacity: 0;
   }
   100%{
     opacity: 1;
     transform: translateX(0);
-    /* width: auto; */
+    
   }
 }
