@@ -1,8 +1,7 @@
-import { useState } from "react";
 import ProductContext from "./ProductContext";
 
 const ProductState = (props) => {
-  const serverProducts = [
+  const products = [
     {
       id: "1111",
       title: "this is 1st title",
@@ -15,11 +14,8 @@ const ProductState = (props) => {
     },
   ];
 
-  const [products, setProducts] = useState(serverProducts);
-//   console.log(products);
-
   return (
-    <ProductContext.Provider value={{products}}>
+    <ProductContext.Provider value={{ products }}>
       {props.children}
     </ProductContext.Provider>
   );
