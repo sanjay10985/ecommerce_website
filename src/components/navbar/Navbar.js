@@ -2,8 +2,13 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineLogin } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useContext } from "react";
+import ProductContext from "../../context/ProductContext";
 
 const Navbar = () => {
+  const context = useContext(ProductContext);
+  const { cartProducts } = context;
+  // console.log(cartProducts.legth);
   return (
     <div className="page_header__div">
       <div className="page_heading__div">
@@ -14,7 +19,12 @@ const Navbar = () => {
         <p>get latest shopping cart</p>
       </div>
       <div className="header_right">
-        <Navitem icon={<AiOutlineShoppingCart />} title="Cart" />
+        <div className="cartButton_icon">
+          <Navitem icon={<AiOutlineShoppingCart />} title="Cart" />
+          <div className="cartItem_number__div">
+            <span className="cartItems_number">{cartProducts.length}</span>
+          </div>
+        </div>
         <Navitem icon={<AiOutlineLogin />} title="Login" />
       </div>
     </div>

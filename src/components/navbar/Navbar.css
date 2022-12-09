@@ -1,7 +1,7 @@
 .page_header__div {
   margin-top: 2.5em;
   border-radius: 1em;
-  height: 10em;
+  height: 8em;
   box-shadow: 1px 1px 3px rgba(87, 80, 80, 0.564),
     -1px -1px 3px rgba(86, 78, 78, 0.542);
   position: relative;
@@ -68,12 +68,28 @@
   box-shadow: 3px 3px 5px rgba(88, 79, 79, 0.463);
   color: white;
   transition: all 0.1s;
+  position: relative;
 }
 
 .navitem__div >  svg:hover {
-  /* transform: translateY(-0.1em); */
   margin-top: -0.1em;
   transition: all 0.1s;
   color: rgb(197, 192, 192);
 }
+.cartItem_number__div{
+  position: absolute;
+  top: 0;
+  background-color: red;
+  border-radius: 50%;
+  padding: .1em;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+}
 
+
+.cartItems_number{
+}
