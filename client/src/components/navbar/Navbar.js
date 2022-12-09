@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ProductContext from "../../context/ProductContext";
 
 const Navbar = () => {
@@ -14,9 +14,15 @@ const Navbar = () => {
   const { cartProducts } = context;
   // console.log(cartProducts.legth);
 
-  const LogOut = () => {
+  // useEffect(() => {
+  //   const LogOutButton = document.getElementById("logout_icon");
+  //   LogOutButton.addEventListener("click", () => LogOut());
+  // },[])
+
+  const LogOut = (e) => {
     localStorage.removeItem("token");
     alert("You are logged out of your account");
+    e.forceUpdate();
   };
   return (
     <div className="page_header__div">
@@ -35,8 +41,8 @@ const Navbar = () => {
           </div>
         </div>
         {localStorage.getItem("token") ? (
-          <div className="navitem__div" title="LogOut">
-            <AiOutlineLogout onClick={LogOut} title="LogOut" />
+          <div className="navitem__div" id="logout_icon" title="LogOut" onClick={(e) => LogOut(e)} >
+            <AiOutlineLogout  title="LogOut" />
             <span style={{ color: "black" }}>LogOut</span>
           </div>
         ) : (
@@ -48,7 +54,6 @@ const Navbar = () => {
 };
 
 const Navitem = ({ icon, title, path }) => {
-  // console.log(path);
   return (
     <Link to={path} className="navitem__div" title={title}>
       {icon}
