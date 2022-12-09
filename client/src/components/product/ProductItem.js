@@ -13,8 +13,8 @@ const ProductItem = ({product}) => {
       <div className="product_info__div">
         <h2 className='product__title'>{product.title}</h2>
         <div className="product_price__div">
-        <h3 className='prodcut__price'>{product.price}</h3>
-        <p className='product__mrp'>{product.mrp}</p>
+        <h3 className='prodcut__price'>{product.price}$</h3>
+        <p className='product__mrp'>{product.mrp}$</p>
         </div>
       </div>
     </div>

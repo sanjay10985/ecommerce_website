@@ -1,5 +1,9 @@
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineLogin } from "react-icons/ai";
+// import { AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiOutlineLogin,
+  AiOutlineLogout,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
@@ -9,6 +13,11 @@ const Navbar = () => {
   const context = useContext(ProductContext);
   const { cartProducts } = context;
   // console.log(cartProducts.legth);
+
+  const LogOut = () => {
+    localStorage.removeItem("token");
+    alert("You are logged out of your account");
+  };
   return (
     <div className="page_header__div">
       <div className="page_heading__div">
@@ -20,21 +29,30 @@ const Navbar = () => {
       </div>
       <div className="header_right">
         <div className="cartButton_icon">
-          <Navitem icon={<AiOutlineShoppingCart />} title="Cart" />
+          <Navitem icon={<AiOutlineShoppingCart />} path="/cart" title="Cart" />
           <div className="cartItem_number__div">
             <span className="cartItems_number">{cartProducts.length}</span>
           </div>
         </div>
-        <Navitem icon={<AiOutlineLogin />} title="Login" />
+        {localStorage.getItem("token") ? (
+          <div className="navitem__div" title="LogOut">
+            <AiOutlineLogout onClick={LogOut} title="LogOut" />
+            <span style={{ color: "black" }}>LogOut</span>
+          </div>
+        ) : (
+          <Navitem icon={<AiOutlineLogin />} title="Login" path="/login" />
+        )}
       </div>
     </div>
   );
 };
 
-const Navitem = ({ icon, title }) => {
+const Navitem = ({ icon, title, path }) => {
+  // console.log(path);
   return (
-    <Link to="/cart" className="navitem__div" title={title}>
+    <Link to={path} className="navitem__div" title={title}>
       {icon}
+      <span style={{color: "black"}}>{title}</span>
     </Link>
   );
 };

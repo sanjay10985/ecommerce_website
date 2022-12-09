@@ -36,6 +36,8 @@ const Cart = () => {
     }
     else{
       alert("login or register first");
+      navigate("/login");
+
     }
   }
   return (
