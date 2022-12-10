@@ -11,7 +11,7 @@ const Login = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password } = data;
-    const response = await fetch("/api/auth/login", {
+    const response = await fetch("api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
