@@ -14,7 +14,7 @@ const Signup = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const { name, email, password } = data;
-    const response = await fetch("http://localhost:5000/api/auth/signup", {
+    const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const Signup = () => {
     if (json.success) {
       console.log("you have successfully created an account");
       localStorage.setItem("token", json.authToken);
-      navigate("/");
+      navigate("/cart");
       alert("Account is been created");
     } else {
       alert("some error has occured");

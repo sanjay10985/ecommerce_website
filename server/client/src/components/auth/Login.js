@@ -11,7 +11,7 @@ const Login = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password } = data;
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const Login = () => {
     if (json.success) {
       console.log("You have successfully logged in");
       localStorage.setItem("token", json.authToken);
-      navigate("/");
+      navigate("/cart");
       alert("successfully logged in");
     } else {
       alert("some error has been occured");
